@@ -7,10 +7,10 @@ var bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-var HTTP_PORT = 8002
+var HTTP_PORT = 80
 
 // Start server
-app.listen(HTTP_PORT, () => {
+app.listen(process.env.PORT || HTTP_PORT, () => {
     console.log("Server running on port %PORT%".replace("%PORT%",HTTP_PORT))
 });
 
