@@ -28,11 +28,23 @@ app.get("/api/dic/:word", async (req, res, next) => {
 			var data;
 			if(el==null) {
 				msg = "failed"
-				data = "Word not found."
+				data = "لفظ نہیں ملا۔"
 			}
             else {
-				msg = "success"
-				data = el.innerHTML
+				msg = "success";				      
+      let arr = [];
+      el.querySelectorAll('.rekhtaDicSrchWord').forEach((e, i) => {
+        
+        let en = e.querySelector('.dicSrchWord').innerText;
+        let hiUr = e.querySelector('.dicSrchMnng').innerText;
+        let enMeaning = e.querySelectorAll('p.dicSrchWrdSyno')[0].innerText;
+        let hiMeaning = "";
+        if (e.querySelectorAll('p.dicSrchWrdSyno')[1])
+          hiMeaning = e.querySelectorAll('p.dicSrchWrdSyno')[1].innerText;
+        arr[i] = { en, hiUr, enMeaning, hiMeaning };
+      });
+      console.log(arr);
+				data = arr;
 			}
         res.json({
             "message":msg,
