@@ -1,17 +1,17 @@
 {
-  "name": "express-api",
+  "name": "dicapi-new",
   "version": "1.0.0",
-  "description": "Express REST API",
+  "description": "Scrape and serve Dic as REST APIs using Express.",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Me",
+  "author": "Shakeeb Ahmad",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.16.4",    
+    "express": "^4.17.1",    
     "node-fetch": "^2.6.1",
-    "node-html-parser": "^1.4.8"
+    "node-html-parser": "^3.3.6"
   }
 }
