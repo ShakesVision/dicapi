@@ -82,12 +82,16 @@ app.get("/api/dic2", async (req, res, next) => {
       case 'detail':
         baseurl = `https://rekhtadictionary.com/meaning-of-${id}?`;
         break;
+	  case 'thesaurus':
+		baseurl = `https://urduthesaurus.com/word?q=`;
+		break;
 
       default:
         baseurl = 'https://rekhtadictionary.com/search?keyword=';
         break;
     }
-    var url = encodeURI(baseurl + word + '&lang=' + lang);
+    var url = encodeURI(baseurl + word);
+	if(method!='thesaurus') url += '&lang=' + lang;
     var msg;
     var data;
     console.log(url);
@@ -165,6 +169,17 @@ app.get("/api/dic2", async (req, res, next) => {
           });
           data = { "basicInfo": { word, originAndWazn, audio }, "detailArr": arr };
           break;
+		 
+		case 'thesaurus':
+		  var arr=[];
+			document.querySelectorAll("#synsets > li").forEach(li=> {
+				var temp = [];
+				li.querySelectorAll("a").forEach(l=>{
+					temp.push(l.innerText);
+					})
+				arr.push(temp.join('|'));
+			});
+		  data = arr;
 
         default:
           data = 'Parameters are not proper. Check again!';
@@ -243,5 +258,5 @@ app.get("/api/rekhta/:input", async (req, res, next) => {
 
 // Root path
 app.get("/", (req, res, next) => {
-    res.json({"message":"Ok"})
+    res.json({"message":"ok"})
 });
