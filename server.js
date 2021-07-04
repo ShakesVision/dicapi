@@ -180,6 +180,7 @@ app.get("/api/dic2", async (req, res, next) => {
 				arr.push(temp.join('|'));
 			});
 		  data = arr;
+		  break;
 
         default:
           data = 'Parameters are not proper. Check again!';
