@@ -10,7 +10,7 @@
   "author": "Shakeeb Ahmad",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1",    
+    "express": "^4.17.1",
     "node-fetch": "^2.6.1",
     "node-html-parser": "^3.3.6"
   }

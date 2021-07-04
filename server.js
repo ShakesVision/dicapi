@@ -172,9 +172,14 @@ app.get("/api/dic2", async (req, res, next) => {
 		 
 		case 'thesaurus':
 		  var arr=[];
-			document.querySelectorAll("#synsets > li").forEach(li=> {
+		  console.log('In thesaurus.');
+		  //if(document.querySelector('#synsets')) console.log('synsets:yes'+document.querySelector('#synsets'));
+		  //if(document.querySelector('#synsets li')) console.log(document.querySelector('#synsets li'));
+			document.querySelectorAll("li").forEach(li=> {
+				console.log('In list.',li)
 				var temp = [];
 				li.querySelectorAll("a").forEach(l=>{
+					console.log('In links.',l+': '+l.innerText)
 					temp.push(l.innerText);
 					})
 				arr.push(temp.join('|'));
