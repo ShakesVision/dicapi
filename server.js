@@ -241,51 +241,6 @@ app.get("/api/rekhta/:input", async (req, res, next) => {
   }
 });
 
-	try {
-		var baseurl = 'https://www.rekhta.org/urdudictionary/?keyword='
-		var word = req.params.word
-		console.log(word);
-		var url = encodeURI(baseurl+word)
-		const response = await fetch(url);
-            const text = await response.text();                         
-            var document = $.parse(text);
-			var el = document.querySelector('div.rekhtaDic');
-			var msg;
-			var data;
-			if(el==null) {
-				msg = "failed"
-				data = "لفظ نہیں ملا۔"
-			}
-            else {
-				msg = "success";				      
-      let arr = [];
-      el.querySelectorAll('.rekhtaDicSrchWord').forEach((e, i) => {
-        
-        let en = e.querySelector('.dicSrchWord').innerText;
-        let hiUr = e.querySelector('.dicSrchMnng').innerText;
-        let enMeaning = e.querySelectorAll('p.dicSrchWrdSyno')[0].innerText;
-        let hiMeaning = "";
-        if (e.querySelectorAll('p.dicSrchWrdSyno')[1])
-          hiMeaning = e.querySelectorAll('p.dicSrchWrdSyno')[1].innerText;
-        arr[i] = { en, hiUr, enMeaning, hiMeaning };
-      });
-      console.log(arr);
-				data = arr;
-			}
-        res.json({
-            "message":msg,
-            "data":data
-        })
-}
-		catch (err) {
-			throw err;
-			res.json({
-            "message":"failed",
-            "data":err
-        })
-		}
-      });
-
 // Root path
 app.get("/", (req, res, next) => {
     res.json({"message":"Ok"})
