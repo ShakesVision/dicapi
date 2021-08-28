@@ -262,7 +262,7 @@ app.get("/api/rekhtaBook/:input", async (req, res, next) => {
   }
 });
 app.get("/doc", (req, res, next) => {
-    res.send(`<head><style> padding: 2em 4em;</style></head><h1>End points</h1><h3>/api/rekhtaBook/:input</h3><p>Where input is book url, returns data necessary for downloading book pages</p><h3>/api/dic/:word</h3><p>The old poetry-specific dictionary. Might become deprecated in the near future.</p><h3>/api/dic2</h3><p>Contains the following queries (e.g. /api/dic2?method=idiom)</p><ul><li>method<ul><li>'getWords', 'briefMeaning', 'compound', 'idiom', 'detail', 'thesaurus'</li></ul></li><li>word</li><li>lang</li><li>id<ul><li>Required, for detail, idiom and compound.</li></ul></li></ul><p><em>by &lt;a href="https://www.shakeeb.in"&gt;Shakeeb Ahmad&lt;/a&gt;</em></p>`);
+    res.send(`<head><style> body{padding: 2em 4em;font-family: system-ui,ui-sans-serif,tahoma; background: #F14466; color: #EBE1C2;}</style></head><h1>End points</h1><h3>/api/rekhtaBook/:input</h3><p>Where input is book url, returns data necessary to download book pages.</p><h3>/api/dic/:word</h3><p>The old poetry-specific dictionary. Might become deprecated in the near future.</p><h3>/api/dic2</h3><p>Contains the following queries (e.g. /api/dic2?method=idiom)</p><ul><li>method<ul><li>'getWords', 'briefMeaning', 'compound', 'idiom', 'detail', 'thesaurus'</li></ul></li><li>word</li><li>lang</li><li>id<ul><li>Required, for detail, idiom and compound.</li></ul></li></ul><p><em>by <a href="https://www.shakeeb.in" style="    color:#fff688;">Shakeeb Ahmad</a></em></p>`);
 });
 // Root path
 app.get("/", (req, res, next) => {
