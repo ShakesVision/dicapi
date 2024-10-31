@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "Scrape and serve Dic as REST APIs using Express.",
   "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ShakesVision/dicapi.git"
+  },
   "scripts": {
     "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,6 +14,7 @@
   "author": "Shakeeb Ahmad",
   "license": "ISC",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "node-fetch": "^2.6.1",
     "node-html-parser": "^3.3.6"

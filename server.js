@@ -1,4 +1,5 @@
 var express = require("express")
+var cors = require('cors')
 var app = express()
 var fetch = require("node-fetch")
 const $ = require('node-html-parser');
@@ -12,6 +13,8 @@ var HTTP_PORT = 3000
 app.listen(process.env.PORT || HTTP_PORT, () => {
     console.log("Server running on port %PORT%".replace("%PORT%",HTTP_PORT))
 });
+
+app.use(cors());
 
 app.get("/api/dic/:word", async (req, res, next) => {
   try {
